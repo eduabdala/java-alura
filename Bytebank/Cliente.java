@@ -1,10 +1,25 @@
 package Bytebank;
 
-public class Cliente {
+public class Cliente implements Autenticavel{
   private String nome;
   private String cpf;
   private String profissao;
   private Endereco endereco;
+  private int senha;
+
+  @Override
+  public void setSenha(int senha) {
+    this.senha = senha;
+  }
+
+  @Override
+  public boolean autentica(int senha) {
+    if(this.senha == senha) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   public String getNome() {
     return nome;
@@ -12,6 +27,7 @@ public class Cliente {
   public void setNome(String nome) {
     this.nome = nome;
   }
+
 
   public String getCpf() {
     return cpf;
